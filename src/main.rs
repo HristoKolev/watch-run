@@ -35,7 +35,7 @@ fn main_result() -> Result {
     let watch_path = args[0].clone();
     let command = args.into_iter().skip(1).collect_vec().join(" ");
 
-    log!("Watching `{}` ...", command);
+    log!("Watching `{}` ...", watch_path);
 
     let (sender, receiver) = channel();
 
