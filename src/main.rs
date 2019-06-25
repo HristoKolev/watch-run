@@ -32,7 +32,8 @@ fn main_result() -> Result {
         ::std::process::exit(1);
     }
 
-    let watch_path = args[0].clone();
+    let watch_path = ::std::fs::canonicalize(args[0].clone())?.get_as_string()?;
+
     let command = args.into_iter().skip(1).collect_vec().join(" ");
 
     log!("Watching `{}` ...", watch_path);
